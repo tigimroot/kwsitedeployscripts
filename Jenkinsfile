@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('build image') {
             steps {
-                echo 'Hello World'
+              sh("docker build -t kwsite:$BUILD_NUMBER . ")
+
             }
           }
-        stage('Fuck you world'){
+        stage('Push image to registry') {
             steps {
-                echo "Mama I'm coming hom"
+                sh("docker tag kwsite:$BUILD_NUMBER 172.24.231.180:5000/kwsite:$BUILD_NUMBER && docker push 172.24.231.180:5000/kwsite:$BUILD_NUMBER ")
             }
         }
-    }
+      }
 }
