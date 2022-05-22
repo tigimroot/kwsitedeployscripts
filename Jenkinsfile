@@ -6,7 +6,8 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-        stage('Fuck you world')
+          }
+        stage('Fuck you world'){
             steps {
                 echo "Mama I'm coming hom"
             }
