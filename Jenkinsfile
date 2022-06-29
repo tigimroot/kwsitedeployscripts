@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+      docker { image 'eeacms/jenkins-slave-dind:1.13'}
+    }
 
     stages {
         stage('build image') {
